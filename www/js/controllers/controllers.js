@@ -1,5 +1,4 @@
-angular.module('app.controllers')
-
+angular.module('blog')
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
@@ -33,14 +32,3 @@ angular.module('app.controllers')
     }, 1000);
   };
 })
-
-.controller('PostsCtrl', function($scope, posts) {
-    $scope.posts = posts.posts;
-})
-
-.controller('PostCtrl', function($scope, $stateParams) {
-  $scope.post = posts.posts[$stateParams.id];
-})
-
-
-

@@ -1,0 +1,17 @@
+<ion-view view-title="New Post">
+  <ion-content>
+    <form ng-submit="NewPost()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" ng-model="postData.title" placeholder="Title">
+        </label>
+        <label class="item item-input">
+          <textarea ng-model="postData.content" placeholder="Content"></textarea>
+        </label>
+      </div>
+      <button type="submit" class="button button-block button-balanced">
+        Create
+      </button>
+    </form>
+  </ion-content>
+</ion-view>

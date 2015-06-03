@@ -4,7 +4,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('blog', ['ionic', 'app.controllers', 'app.factories'])
+angular.module('blog', ['ionic', 'ngResource'])
+
+// .constant("ApiUrl", "http://localhost:3000/api")
+.constant("ApiUrl", "http://blog-rails-api.herokuapp.com/api")
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -52,7 +55,7 @@ angular.module('blog', ['ionic', 'app.controllers', 'app.factories'])
     url: '/posts',
     views: {
       'menuContent': {
-        templateUrl: 'templates/posts.html',
+        templateUrl: 'templates/posts/index.html',
         controller: 'PostsCtrl'
       }
     }
@@ -62,11 +65,21 @@ angular.module('blog', ['ionic', 'app.controllers', 'app.factories'])
     url: '/posts/:postId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/post.html',
-        controller: 'PostsCtrl'
+        templateUrl: 'templates/posts/show.html',
+        controller: 'PostCtrl'
       }
     }
-  })  
+  })
+
+  .state('app.', {
+    url: '/cacca',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/posts/new.html',
+        controller: 'NewPostCtrl'
+      }
+    }
+  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
